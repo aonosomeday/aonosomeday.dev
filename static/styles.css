@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  background-color: oklch(.984 .005 180.72)
+}
