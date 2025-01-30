@@ -11,5 +11,5 @@ export default function Page({ children }: { children: ComponentChildren }) {
       </main>
       <Footer />
     </div>
-  )
+  );
 }

@@ -9,8 +9,8 @@ export default function Home() {
         <p>青野咲夢(@aonosomeday)のホームページ。</p>
       </section>
 
-      <Card title="プロフィール" description="青野咲夢について"/>
-      <Card title="ブログ" description="青野咲夢の個人ブログ"/>
+      <Card href="/profile" title="プロフィール" description="青野咲夢について"/>
+      <Card href="/blog" title="ブログ" description="青野咲夢の個人ブログ"/>
     </Page>
   );
 }
