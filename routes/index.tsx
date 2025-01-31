@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <Page>
       <section className="p-8">
-        <h1 className="text-4xl py-4">aonosomeday.dev</h1>
+        <h1 className="text-4xl py-4">aonosomeday.net</h1>
         <p>青野咲夢(@aonosomeday)のホームページ。</p>
       </section>
 
