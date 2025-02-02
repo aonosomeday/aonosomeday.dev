@@ -19,5 +19,5 @@ jobs:
         with:
           deno-version: v2.x
 
-      - name: Build step
+      - name: Check
         run: "deno task check"
