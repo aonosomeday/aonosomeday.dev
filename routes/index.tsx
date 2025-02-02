@@ -4,8 +4,8 @@ import Page from "../components/Page.tsx";
 export default function Home() {
   return (
     <Page>
-      <section className="p-8">
-        <h1 className="text-4xl py-4">aonosomeday.net</h1>
+      <section className="mb-12 ml-2 mr-2 md:ml-12 md:mr-12">
+        <h1 className="text-4xl">aonosomeday.net</h1>
         <p>青野咲夢(@aonosomeday)のホームページ。</p>
       </section>
 
