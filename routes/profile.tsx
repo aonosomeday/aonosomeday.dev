@@ -13,7 +13,11 @@ export default function Profile() {
           <li>言語: 日本語、英語、JavaScript、Kotlin</li>
         </ul>
 
-        <img className="rounded-full w-auto h-32" alt="アイコン" src="/avatar.jpg" />
+        <img
+          className="rounded-full w-auto h-32"
+          alt="アイコン"
+          src="/avatar.jpg"
+        />
       </section>
 
       <section>
@@ -21,7 +25,12 @@ export default function Profile() {
 
         <ul className="list-disc ml-4">
           <li>
-            <a className="decoration-solid" href="https://twitter.com/aonosomeday">Twitter</a>
+            <a
+              className="decoration-solid"
+              href="https://twitter.com/aonosomeday"
+            >
+              Twitter
+            </a>
           </li>
           <li>
             <a href="https://github.com/aonosomeday">GitHub</a>

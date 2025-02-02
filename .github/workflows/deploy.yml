@@ -32,5 +32,3 @@ jobs:
           project: "aonosomeday-net"
           entrypoint: "main.ts"
           root: "."
-          
-          
