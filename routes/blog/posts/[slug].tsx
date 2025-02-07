@@ -27,6 +27,7 @@ export default function PostPage(props: PageProps<Post>) {
           <h1 className="text-5xl font-bold mb-2">{post.title}</h1>
           <time className="text-gray-500">
             {new Date(post.publishedAt).toLocaleString("ja-jp", {
+              timeZone: "Asia/Tokyo",
               timeZoneName: "shortOffset",
             })}
           </time>
