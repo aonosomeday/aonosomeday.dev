@@ -5,3 +5,7 @@
 body {
   background-color: oklch(0.984 0.005 180.72);
 }
+
+.default-link {
+  @apply underline text-blue-600 hover:text-blue-800 visited:text-purple-600;
+}

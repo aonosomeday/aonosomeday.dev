@@ -26,20 +26,29 @@ export default function Profile() {
         <ul className="list-disc ml-4">
           <li>
             <a
-              className="decoration-solid"
+              className="default-link"
               href="https://twitter.com/aonosomeday"
             >
               Twitter
             </a>
           </li>
           <li>
-            <a href="https://github.com/aonosomeday">GitHub</a>
+            <a className="default-link" href="https://github.com/aonosomeday">
+              GitHub
+            </a>
           </li>
           <li>
-            <a href="https://keybase.io/aonosomeday">Keybase</a>
+            <a className="default-link" href="https://keybase.io/aonosomeday">
+              Keybase
+            </a>
           </li>
           <li>
-            <a href="https://keybase.io/aonosomeday/pgp_keys.asc">PGP Keys</a>
+            <a
+              className="default-link"
+              href="https://keybase.io/aonosomeday/pgp_keys.asc"
+            >
+              PGP Keys
+            </a>
           </li>
         </ul>
       </section>
