@@ -15,7 +15,7 @@ export default function Profile() {
 
         <img
           className="rounded-full w-auto h-32"
-          alt="アイコン"
+          alt="青野咲夢のアイコン"
           src="/avatar.jpg"
         />
       </section>

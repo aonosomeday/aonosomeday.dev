@@ -14,6 +14,7 @@ export default function Home() {
         title="プロフィール"
         description="青野咲夢について"
         imgPath="/avatar.jpg"
+        imgAlt="青野咲夢のアイコン"
       />
       <Card href="/blog" title="ブログ" description="青野咲夢の個人ブログ" />
     </Page>
