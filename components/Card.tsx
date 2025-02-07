@@ -12,7 +12,7 @@ export default function Card(
       href={href}
       className="w-full flex justify-between mt-4 p-6 bg-white rounded-lg shadow-sm hover:bg-gray-100"
     >
-      <div className="">
+      <div>
         <h2 className="text-2xl font-bold">{title}</h2>
         <p>{description}</p>
       </div>
