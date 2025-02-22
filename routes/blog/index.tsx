@@ -11,7 +11,7 @@ export default async function BlogIndex() {
       </Head>
       <Page>
         <h1 className="text-4xl font-semibold">ブログ</h1>
-      {(await getAllPosts()).map((post) => <PostCard post={post} />)}
+      {(await getAllPosts()).map((post) => <PostCard post={post} key={post.slug}/>)}
       </Page>
     </>
   );
