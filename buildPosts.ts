@@ -1,6 +1,6 @@
 import { render } from "@deno/gfm";
 import { extractYaml } from "@std/front-matter";
-import { Post } from "./utils/posts.ts";
+import { getAllPosts, Post } from "./utils/posts.ts";
 import { join } from "$std/path/join.ts";
 import { parse } from "$std/path/parse.ts";
 
@@ -32,3 +32,7 @@ for await (const entry of Deno.readDir(`${POSTS_PATH}`)) {
   await kv.set(key, post);
   console.log(`Added ${key}`);
 }
+
+const sortedPosts = await getAllPosts();
+const sortedSlugs = sortedPosts.map(post => post.slug);
+await kv.set(["sortedSlugs"], sortedSlugs);
