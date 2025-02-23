@@ -9,7 +9,9 @@ export default function PostCard({ post }: { post: Post }) {
       <div>
         <h2 className="text-2xl font-bold">{post.title}</h2>
         <time className="text-gray-500 mr-2">
-          {new Date(post.publishedAt).toLocaleDateString("ja-jp", { timeZone: "Asia/Tokyo" })}
+          {new Date(post.publishedAt).toLocaleDateString("ja-jp", {
+            timeZone: "Asia/Tokyo",
+          })}
         </time>
         {post.snippet}
       </div>

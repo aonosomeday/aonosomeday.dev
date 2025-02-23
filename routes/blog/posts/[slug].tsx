@@ -20,7 +20,7 @@ export default function PostPage(props: PageProps<Post>) {
   return (
     <>
       <Head>
-        <title>{ post.title } | aonosomeday.net</title>
+        <title>{post.title} | aonosomeday.net</title>
         <style dangerouslySetInnerHTML={{ __html: CSS }} />
       </Head>
       <Page>

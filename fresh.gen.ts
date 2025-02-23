@@ -8,7 +8,8 @@ import * as $blog_index from "./routes/blog/index.tsx";
 import * as $blog_posts_slug_ from "./routes/blog/posts/[slug].tsx";
 import * as $index from "./routes/index.tsx";
 import * as $profile from "./routes/profile.tsx";
-
+import * as $PostCard from "./islands/PostCard.tsx";
+import * as $PostPaging from "./islands/PostPaging.tsx";
 import type { Manifest } from "$fresh/server.ts";
 
 const manifest = {
@@ -20,7 +21,10 @@ const manifest = {
     "./routes/index.tsx": $index,
     "./routes/profile.tsx": $profile,
   },
-  islands: {},
+  islands: {
+    "./islands/PostCard.tsx": $PostCard,
+    "./islands/PostPaging.tsx": $PostPaging,
+  },
   baseUrl: import.meta.url,
 } satisfies Manifest;
 

@@ -34,5 +34,5 @@ for await (const entry of Deno.readDir(`${POSTS_PATH}`)) {
 }
 
 const sortedPosts = await getAllPosts();
-const sortedSlugs = sortedPosts.map(post => post.slug);
+const sortedSlugs = sortedPosts.map((post) => post.slug);
 await kv.set(["sortedSlugs"], sortedSlugs);
