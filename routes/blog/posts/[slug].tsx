@@ -3,6 +3,10 @@ import { Handlers, PageProps } from "$fresh/server.ts";
 import { CSS } from "@deno/gfm";
 import Page from "../../../components/Page.tsx";
 import { getPost, Post } from "../../../utils/posts.ts";
+// @ts-types="@types/sanitize-html"
+import sanitizeHtml from "sanitize-html";
+
+const sanitizedCSS = sanitizeHtml(CSS);
 
 export const handler: Handlers = {
   async GET(_req, ctx) {
@@ -21,7 +25,10 @@ export default function PostPage(props: PageProps<Post>) {
     <>
       <Head>
         <title>{post.title} | aonosomeday.net</title>
-        <style dangerouslySetInnerHTML={{ __html: CSS }} />
+        {
+          // deno-lint-ignore react-no-danger
+          <style dangerouslySetInnerHTML={{ __html: sanitizedCSS }} />
+        }
       </Head>
       <Page>
         <article>
@@ -35,6 +42,7 @@ export default function PostPage(props: PageProps<Post>) {
           <div
             className="mt-6 markdown-body"
             style="background-color: inherit;"
+            // deno-lint-ignore react-no-danger
             dangerouslySetInnerHTML={{ __html: post.content }}
           />
         </article>

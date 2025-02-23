@@ -3,6 +3,8 @@ import { extractYaml } from "@std/front-matter";
 import { getAllPosts, Post } from "./utils/posts.ts";
 import { join } from "$std/path/join.ts";
 import { parse } from "$std/path/parse.ts";
+// @ts-types="@types/sanitize-html"
+import sanitizeHtml from "sanitize-html";
 
 const POSTS_PATH = "./posts";
 const kv = await Deno.openKv(Deno.env.get("KV_PATH"));
@@ -23,7 +25,7 @@ for await (const entry of Deno.readDir(`${POSTS_PATH}`)) {
     slug: parse(entry.name).name,
     title: data.attrs.title,
     publishedAt: new Date(data.attrs.published_at),
-    content: render(data.body),
+    content: sanitizeHtml(render(data.body)),
     snippet: data.attrs.snippet,
   };
 
