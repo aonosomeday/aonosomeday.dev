@@ -1,3 +1,11 @@
+import { render } from "@deno/gfm";
+import { extractYaml } from "@std/front-matter";
+import { join } from "$std/path/join.ts";
+import { parse } from "$std/path/parse.ts";
+// @ts-types="@types/sanitize-html"
+import sanitizeHtml from "sanitize-html";
+
+const POSTS_PATH = "./posts";
 const kv = await Deno.openKv(Deno.env.get("KV_PATH"));
 
 export interface Post {
@@ -21,6 +29,7 @@ export async function getAllPosts(): Promise<Post[]> {
     posts.push(post.value);
   }
 
+  // Sort posts with date
   posts.sort((a, b) => {
     if (a.publishedAt > b.publishedAt) {
       return -1;
@@ -32,4 +41,37 @@ export async function getAllPosts(): Promise<Post[]> {
   });
 
   return posts;
+}
+
+/**
+ * Generate HTML data from markdown and write them to Deno KV
+ */
+export async function applyPostsToDatabase(): Promise<void> {
+  // Delete all posts from KV store
+  for await (const entry of kv.list({ prefix: ["post"] })) {
+    await kv.delete(entry.key);
+  }
+
+  // Add all posts to KV store
+  for await (const entry of Deno.readDir(`${POSTS_PATH}`)) {
+    const data = extractYaml<
+      { title: string; published_at: string; snippet: string }
+    >(await Deno.readTextFile(join(POSTS_PATH, entry.name)));
+
+    const post: Post = {
+      slug: parse(entry.name).name,
+      title: data.attrs.title,
+      publishedAt: new Date(data.attrs.published_at),
+      content: sanitizeHtml(render(data.body)),
+      snippet: data.attrs.snippet,
+    };
+
+    const key = ["post", post.slug];
+
+    await kv.set(key, post);
+  }
+
+  const sortedPosts = await getAllPosts();
+  const sortedSlugs = sortedPosts.map((post) => post.slug);
+  await kv.set(["sortedSlugs"], sortedSlugs);
 }
